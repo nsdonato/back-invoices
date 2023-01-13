@@ -1,13 +1,3 @@
-# 1. npm Install
-
-# 2 . Renombrar `.env.template` a `.env` y completar las variables de entorno para que se pueda conectar a url de la base de datos
-
-## localhost:8000/api/planetas
-
-## GET
-
-- `/api/planet/:id` fecth a single planet by its name
-
 # Proyecto: Invoice App 🧾
 
 👋🏻 Bienvenidx al Proyecto de [FrontEnd-Mentor](https://www.frontendmentor.io/challenges/invoice-app-i7KaLTQjl) desarrollado por la comunidad de Discord de [vamoacodear 👩🏻‍💻](https://www.twitch.tv/vamoacodear)
@@ -66,6 +56,16 @@ npm install
 ```
 npm run start
 ```
+
+## Variables de entorno local
+
+Renombrar `.env.template` a `.env` y completar las variables de entorno para que te puedas conectar de manera local a la base de datos
+
+## Endpoints
+
+### Ejemplo GET
+
+- `/api/invoice/:id` Obtener una factura especifica
 
 ## Ayuda
 
