@@ -9,5 +9,6 @@ Esta plantilla esta diseñada para organizar mejor nuestras ideas en el momento 
 <!-- Descripcion del pull request, por favor explica brevemente de que trata este Pull Request -->
 
 ## Como testear? 🐛
+
 <!--OPCIONAL -->
 <!-- Como podemos testear estos cambios? -->
