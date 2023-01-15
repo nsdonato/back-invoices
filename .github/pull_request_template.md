@@ -2,7 +2,7 @@
 Esta plantilla esta diseñada para organizar mejor nuestras ideas en el momento de realizar un Pull Request.
 -->
 
-# Invoices App Pull Request 🪐
+# 🧾 Invoices App Pull Request
 
 ## Descripcion ✏️
 
@@ -10,5 +10,4 @@ Esta plantilla esta diseñada para organizar mejor nuestras ideas en el momento 
 
 ## Como testear? 🐛
 
-<!--OPCIONAL -->
-<!-- Como podemos testear estos cambios? -->
+<!-- Si se requiere testing, por favor danos una breve explicación de commo podemos testear los cambios? -->
