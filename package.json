@@ -14,10 +14,10 @@
     "prettier": "prettier --check .",
     "prettier:fix": "prettier --write .",
     "prisma:init": "prisma init",
-    "prisma:migrate": "prisma migrate dev --preview-feature --schema=./src/config/prisma/schema.prisma",
-    "prisma:generate": "prisma generate --schema=./src/config/prisma/schema.prisma",
-    "prisma:generate-watch": "prisma generate --watch --schema=./src/config/prisma/schema.prisma",
-    "prisma:seed": "ts-node src/config/prisma/seed.ts",
+    "prisma:migrate": "prisma migrate dev --preview-feature --schema=./prisma/schema.prisma",
+    "prisma:generate": "prisma generate --schema=./prisma/schema.prisma",
+    "prisma:generate-watch": "prisma generate --watch --schema=./prisma/schema.prisma",
+    "prisma:seed": "ts-node prisma/seed.ts",
     "prepare": "husky install"
   },
   "repository": {
@@ -58,7 +58,8 @@
     "cors": "2.8.5",
     "dotenv": "16.0.1",
     "express": "4.18.1",
-    "mongoose": "6.8.3"
+    "mongoose": "6.8.3",
+    "ts-node": "10.9.1"
   },
   "lint-staged": {
     "*.(ts|tsx)": [
