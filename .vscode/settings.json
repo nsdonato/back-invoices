@@ -1,0 +1,6 @@
+{
+    "conventionalCommits.scopes": [
+        "tests",
+        "initial server"
+    ]
+}
