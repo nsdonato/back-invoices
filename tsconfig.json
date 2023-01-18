@@ -32,7 +32,9 @@
     "paths": {
       "@configs/*": ["./src/configs/*"],
       "@apps/*": ["./src/apps/*"],
-      "@root/*": ["./src/*"]
+      "@src/*": ["./src/*"],
+      "@bin/*": ["./bin/*"],
+      "@root/*": ["./*"]
     } /* Specify a set of entries that re-map imports to additional lookup locations. */,
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
     // "types": [],                                      /* Specify type package names to be included without being referenced in a source file. */
@@ -103,6 +105,6 @@
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
-  "include": ["src/**/*", "__test__"],
+  "include": ["src/**/*", "__test__", "bin", "prisma"],
   "exclude": ["node_modules"]
 }

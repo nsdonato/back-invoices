@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "npx tsc -p tsconfig.prod.json",
-    "dev": "tsc-watch -p ./tsconfig.json --onSuccess \"node ./build/src/bin/www.js\"",
-    "start": "node build/src/bin/www.js",
+    "dev": "tsc-watch -p ./tsconfig.json --onSuccess \"node ./build/bin/www.js\"",
+    "start": "node build/bin/www.js",
     "test": "npx jest --verbose",
     "lint": "eslint ./src/**/*.ts",
     "lint:fix": "eslint **/*.ts --fix",
@@ -16,7 +16,7 @@
     "prisma:migrate": "prisma migrate dev --preview-feature --schema=./prisma/schema.prisma",
     "prisma:generate": "prisma generate --schema=./prisma/schema.prisma",
     "prisma:generate-watch": "prisma generate --watch --schema=./prisma/schema.prisma",
-    "prisma:seed": "ts-node prisma/seed.ts",
+    "prisma:seed": "ts-node bin/seed.ts",
     "prepare": "husky install"
   },
   "repository": {
@@ -53,6 +53,7 @@
     "prisma": "4.2.1",
     "supertest": "6.3.3",
     "ts-jest": "28.0.8",
+    "ts-node": "10.9.1",
     "tsc-watch": "6.0.0",
     "typescript": "4.7.4"
   },
@@ -74,7 +75,9 @@
   },
   "_moduleAliases": {
     "@apps": "build/src/apps",
-    "@root": "build/src",
-    "@configs": "build/src/configs"
+    "@configs": "build/src/configs",
+    "@bin": "build/bin",
+    "@src": "build/src",
+    "@root": "build"
   }
 }
