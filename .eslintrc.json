@@ -17,20 +17,6 @@
     "project": "./tsconfig.json"
   },
   "rules": {
-    "prettier/prettier": "error",
-    "import/no-unresolved": [
-      "error",
-      {
-        "plugins": [
-          "module-resolve",
-          {
-            "@common": "./src/common",
-            "@controller": "./src/controller",
-            "@model": "./src/model",
-            "@routes": "./src/routes"
-          }
-        ]
-      }
-    ]
+    "prettier/prettier": "error"
   }
 }

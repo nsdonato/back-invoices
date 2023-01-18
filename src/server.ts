@@ -24,5 +24,6 @@ app.use(
 
 app.use(`${routePrefix}/`, router)
 
-export const start = () =>
+export const start = (): void => {
   app.listen(port, () => morgan(`Server running on port ${port}`))
+}
