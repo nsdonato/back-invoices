@@ -1,11 +1,11 @@
-require("dotenv").config();
+require('dotenv').config()
 
 const getEnvVar = (name: any) => {
-  const val = process.env[name];
+  const val = process.env[name]
   if (!val) {
-    throw "ERROR: ENV variable not set: " + name;
+    throw 'ERROR: ENV variable not set: ' + name
   }
-  return val;
-};
+  return val
+}
 
-export { getEnvVar };
+export { getEnvVar }
