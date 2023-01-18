@@ -1,0 +1,26 @@
+{
+    "appenders": {
+        "console": {
+            "type": "console",
+            "layout": {
+                "type": "pattern",
+                "pattern": "%[%d{ISO8601} %p %c -%] %m"
+            }
+        },
+        "file": {
+            "type": "file",
+            "filename": "logs/app.log",
+            "maxLogSize": 10485760,
+            "backups": 3,
+            "layout": {
+                "type": "pattern",
+                "pattern": "%d{ISO8601} %p %c - %m"
+            }
+        }
+    },
+    "categories": {
+        "default": { "appenders": ["console"], "level": "all" },
+        "access": { "appenders": ["file", "console"], "level": "DEBUG" },
+        "debug": { "appenders": ["file", "console"], "level": "DEBUG" }
+    }
+}
