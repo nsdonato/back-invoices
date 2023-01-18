@@ -1,11 +1,10 @@
 import 'module-alias/register'
-import morgan from 'morgan'
 import express from 'express'
 import cors from 'cors'
+import helmet from 'helmet'
+import compress from 'compression'
 import { router } from '@apps/home/routes'
-import { ConfigEnv } from '@configs/index'
-
-morgan('server')
+import { ConfigEnv, logger } from '@configs/index'
 
 const app = express()
 const routePrefix = '/api/v1'
@@ -19,11 +18,19 @@ app.use(
     extended: true
   })
 )
+app.use(helmet.xssFilter())
+app.use(helmet.noSniff())
+app.use(helmet.hidePoweredBy())
+app.use(helmet.frameguard({ action: 'deny' }))
+app.use(compress())
+app.use(logger.express)
 
 // Routes
 
 app.use(`${routePrefix}/`, router)
 
 export const start = (): void => {
-  app.listen(port, () => morgan(`Server running on port ${port}`))
+  app.listen(port, () => {
+    logger.debug.info(`Server running on port ${port}`)
+  })
 }
