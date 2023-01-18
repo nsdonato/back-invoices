@@ -14,10 +14,10 @@
     "prettier": "prettier --check .",
     "prettier:fix": "prettier --write .",
     "prisma:init": "prisma init",
-    "prisma:migrate": "prisma migrate dev --preview-feature --schema=./src/config/prisma/schema.prisma",
-    "prisma:generate": "prisma generate --schema=./src/config/prisma/schema.prisma",
-    "prisma:generate-watch": "prisma generate --watch --schema=./src/config/prisma/schema.prisma",
-    "prisma:seed": "ts-node src/config/prisma/seed.ts",
+    "prisma:migrate": "prisma migrate dev --preview-feature --schema=./prisma/schema.prisma",
+    "prisma:generate": "prisma generate --schema=./prisma/schema.prisma",
+    "prisma:generate-watch": "prisma generate --watch --schema=./prisma/schema.prisma",
+    "prisma:seed": "ts-node prisma/seed.ts",
     "prepare": "husky install"
   },
   "repository": {
