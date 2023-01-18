@@ -6,7 +6,6 @@
   "scripts": {
     "build": "npx tsc -p tsconfig.prod.json",
     "dev": "tsc-watch -p ./tsconfig.json --onSuccess \"node ./build/src/bin/www.js\"",
-    "build:clean": "rm -rf build; exit 0",
     "start": "node build/src/bin/www.js",
     "test": "npx jest --verbose",
     "lint": "eslint ./src/**/*.ts",
