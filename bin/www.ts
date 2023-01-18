@@ -1,4 +1,4 @@
 import 'module-alias/register'
-import { start } from '@root/server'
+import { start } from '@src/server'
 
 start()
