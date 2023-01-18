@@ -6,6 +6,7 @@
     "alexkrechik.cucumberautocomplete",
     "steoates.autoimport",
     "vivaxy.vscode-conventional-commits",
-    "wix.vscode-import-cost"
+    "wix.vscode-import-cost",
+    "quicktype.quicktype"
   ]
 }
