@@ -1,6 +1,8 @@
 {
     "conventionalCommits.scopes": [
         "tests",
-        "initial server"
+        "initial server",
+        "scripts",
+        "estructura"
     ]
 }

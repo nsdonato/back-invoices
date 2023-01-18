@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx tsc -p tsconfig.prod.json",
-    "dev": "tsc-watch -p ./tsconfig.json --onSuccess \"node ./build/bin/www.js\"",
-    "start": "node build/bin/www.js",
-    "test": "npx jest --verbose",
+    "build": "cross-env NODE_ENV=production npx tsc -p tsconfig.prod.json",
+    "dev": "cross-env NODE_ENV=development tsc-watch -p ./tsconfig.json --onSuccess \"node ./build/bin/www.js\"",
+    "start": "cross-env NODE_ENV=production node build/bin/www.js",
+    "test": "cross-env NODE_ENV=development npx jest --verbose",
     "lint": "eslint ./src/**/*.ts",
     "lint:fix": "eslint **/*.ts --fix",
     "prettier": "prettier --check .",
@@ -60,6 +60,7 @@
   "dependencies": {
     "@prisma/client": "4.2.1",
     "cors": "2.8.5",
+    "cross-env": "7.0.3",
     "dotenv": "16.0.1",
     "express": "4.18.1",
     "module-alias": "2.2.2",
