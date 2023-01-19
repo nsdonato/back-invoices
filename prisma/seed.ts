@@ -10,8 +10,10 @@ const prisma = new PrismaClient();
 
 async function main() {
   data.forEach(async (d: Data) => {
-    await prisma.invoice.create({
-      data: {
+    await prisma.invoice.upsert({
+      where: { id: d.id },
+      update: {},
+      create: {
         paymentDue: new Date(d.paymentDue),
         description: d.description,
         status: d.status,
