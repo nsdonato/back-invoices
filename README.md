@@ -20,6 +20,45 @@ De esta manera aprenderas cosas del día a día de un ambiente laboral!:
 - Code Review
 - Utilización de diferentes tecnologías que decidimos utilizar en el proyecto, como: Git, Github, Node, Express, TypeScript, ESLint, Prettier, Husky, entre otras!
 
+## Estructura del proyecto
+```
+.
+├── __test__
+│   └── index.spec.ts
+├── bin
+|   ├── seed.ts
+│   └── www.ts
+├── prisma
+│   ├── data.dto.ts
+│   ├── data.json
+│   └── schema.prisma
+├── src
+│   ├── apps
+│   │   └── home
+│   │       ├── controller.ts
+│   │       ├── model.ts
+│   │       └── routes.ts
+│   ├── configs
+│   │   ├── enviroments
+│   │   │   └── config.env.ts
+│   │   ├── types
+│   │   │   └── types.d.ts
+|   |   └── index.ts
+│   └── server.ts
+├── jest.config.js
+├── commitlint.config.js
+├── README.md
+├── tsconfig.json
+├── tsconfig.prod.json
+├── package.json
+├── package-lock.json
+└── vercel.json
+
+10 directories, 21 files
+
+```
+*Nota:* Si quieres agregar algún archivo que vaya a ser añadido en un script de node, agregarlo en la carpeta ```bin```
+
 ## Diseño
 
 El equipo de diseño de Frontend Mentor (?) nos dejó un data.json con la información necesaria para modelar la base de datos. El archivo se encuentra en el canal de Discord [invoice-app.zip](https://discord.com/channels/916074182524174386/1063212906403082322/1063213368816701542)
