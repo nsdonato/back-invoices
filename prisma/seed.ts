@@ -9,44 +9,45 @@ import { type Data } from './data.dto';
 const prisma = new PrismaClient();
 
 async function main() {
-  data.forEach(async (d: Data) => {
-    await prisma.invoice.upsert({
-      where: { id: d.id },
-      update: {},
-      create: {
-        paymentDue: new Date(d.paymentDue),
-        description: d.description,
-        status: d.status,
-        paymentTerms: d.paymentTerms,
-        total: d.total,
-        address: {
-          create: {
-            street: d.senderAddress.street,
-            city: d.senderAddress.city,
-            postCode: d.senderAddress.postCode,
-            country: d.senderAddress.country,
+  await prisma.$transaction(
+    data.map((d: Data) =>  prisma.invoice.upsert({
+        where: { id: d.id },
+        update: {},
+        create: {
+          paymentDue: new Date(d.paymentDue),
+          description: d.description,
+          status: d.status,
+          paymentTerms: d.paymentTerms,
+          total: d.total,
+          address: {
+            create: {
+              street: d.senderAddress.street,
+              city: d.senderAddress.city,
+              postCode: d.senderAddress.postCode,
+              country: d.senderAddress.country,
+            },
           },
-        },
-        client: {
-          create: {
-            name: d.clientName,
-            email: d.clientEmail,
-            address: {
-              create: {
-                street: d.clientAddress.street,
-                city: d.clientAddress.city,
-                postCode: d.clientAddress.postCode,
-                country: d.clientAddress.country,
+          client: {
+            create: {
+              name: d.clientName,
+              email: d.clientEmail,
+              address: {
+                create: {
+                  street: d.clientAddress.street,
+                  city: d.clientAddress.city,
+                  postCode: d.clientAddress.postCode,
+                  country: d.clientAddress.country,
+                },
               },
             },
           },
+          items: {
+            create: [...d.items],
+          },
         },
-        items: {
-          create: [...d.items],
-        },
-      },
-    });
-  });
+      })
+    )
+  );
 }
 
 main()
