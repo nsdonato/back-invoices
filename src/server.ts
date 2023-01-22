@@ -34,3 +34,5 @@ export const start = (): void => {
     logger.debug.info(`Server running on port ${port}`)
   })
 }
+
+export { app as appServer, routePrefix }
