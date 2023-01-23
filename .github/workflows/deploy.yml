@@ -36,7 +36,7 @@ jobs:
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
     steps:
       - name: Checkout code
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
       - name: Install dependencies
         run: npm ci
       - name: Install Vercel CLI
