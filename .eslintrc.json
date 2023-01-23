@@ -17,7 +17,6 @@
     "project": "./tsconfig.json"
   },
   "rules": {
-    "prettier/prettier": "error",
-    "@typescripteslint/no-miusused-promises": "off"
+    "prettier/prettier": "error"
   }
 }
