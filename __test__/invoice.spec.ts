@@ -7,10 +7,10 @@ describe(`GET ${routePrefix}/invoices`, () => {
     const oneInvoiceExpected = [
       {
         id: '63cc5f7c146c5606c193f803',
-        paymentDue: '2021-08-19T00:00:00.000+00:00',
+        paymentDue: '2021-08-19T00:00:00.000Z',
         status: 'paid',
         total: 1800.9,
-        clientName: 'Jensen Huang'
+        client: { name: 'Jensen Huang' }
       }
     ]
     const response = await request(appServer).get(`${routePrefix}/invoices`)
