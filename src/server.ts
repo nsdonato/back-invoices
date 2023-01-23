@@ -3,7 +3,9 @@ import express from 'express'
 import cors from 'cors'
 import helmet from 'helmet'
 import compress from 'compression'
+import errorHandler from '@middlewares/error-handler'
 import { router } from '@apps/home/routes'
+import { invoicesRouter } from '@apps/invoices/router'
 import { ConfigEnv, logger } from '@configs/index'
 
 const app = express()
@@ -28,6 +30,9 @@ app.use(logger.express)
 // Routes
 
 app.use(`${routePrefix}/`, router)
+app.use(`${routePrefix}/invoices`, invoicesRouter)
+
+app.use(errorHandler)
 
 export const start = (): void => {
   app.listen(port, () => {
