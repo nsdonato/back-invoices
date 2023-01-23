@@ -32,6 +32,8 @@
     "paths": {
       "@configs/*": ["./src/configs/*"],
       "@apps/*": ["./src/apps/*"],
+      "@middlewares/*": ["./src/middlewares/*"],
+      "@models/*": ["./src/models/*"],
       "@src/*": ["./src/*"],
       "@bin/*": ["./bin/*"],
       "@root/*": ["./*"]

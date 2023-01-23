@@ -80,6 +80,8 @@
   "_moduleAliases": {
     "@apps": "build/src/apps",
     "@configs": "build/src/configs",
+    "@middlewares": "build/src/middlewares",
+    "@models": "build/src/models",
     "@bin": "build/bin",
     "@src": "build/src",
     "@root": "build"
