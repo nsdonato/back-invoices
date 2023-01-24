@@ -12,7 +12,6 @@ const app = express()
 const routePrefix = '/api/v1'
 const port = ConfigEnv.PORT
 
-// Middlewares]
 app.use(express.json())
 app.use(cors())
 app.use(
@@ -26,8 +25,6 @@ app.use(helmet.hidePoweredBy())
 app.use(helmet.frameguard({ action: 'deny' }))
 app.use(compress())
 app.use(logger.express)
-
-// Routes
 
 app.use(`${routePrefix}/`, router)
 app.use(`${routePrefix}/invoices`, invoicesRouter)
