@@ -12,7 +12,7 @@ function handleError(
     appError = new AppError({ message: err.message, status: 500 })
   }
 
-  return res.status((appError as AppError).status).json(appError)
+  return res.status((appError as AppError).status).json(appError.message)
 }
 
 export default handleError
