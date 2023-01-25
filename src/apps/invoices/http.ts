@@ -1,5 +1,8 @@
 import { NextFunction, Request, Response } from 'express'
-import { getAllInvoicesController } from './controller'
+import {
+  getAllInvoicesController,
+  getDetailInvoiceController
+} from './controller'
 
 async function getAllInvoices(
   _req: Request,
@@ -17,4 +20,21 @@ async function getAllInvoices(
   }
 }
 
-export { getAllInvoices }
+async function getDetailInvoice(
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<void> {
+  try {
+    const { id } = req.params
+    const invoice = await getDetailInvoiceController({ id: String(id) })
+    res.status(200).json({
+      ok: true,
+      data: invoice
+    })
+  } catch (error: unknown) {
+    next(error)
+  }
+}
+
+export { getAllInvoices, getDetailInvoice }
