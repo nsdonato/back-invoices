@@ -10,7 +10,6 @@ module.exports = {
     transform: {
       '^.+\\.(ts|tsx)$': 'ts-jest'
     },
-    testMatch: ['**/__test__/*.spec.ts'],
     testEnvironment: 'node',
     moduleNameMapper: {
       '^@apps(.*)$': '<rootDir>/src/apps$1',
