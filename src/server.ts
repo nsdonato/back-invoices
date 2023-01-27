@@ -34,7 +34,6 @@ app.use(`${routePrefix}/`, router)
 
 export const start = (): void => {
   app.listen(port, () => {
-    logger.debug.info(`Npm version:${process.env.npm_package_version}`)
     logger.debug.info(`Server running on port ${port}`)
   })
 }
