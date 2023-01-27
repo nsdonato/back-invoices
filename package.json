@@ -7,7 +7,9 @@
     "build": "cross-env NODE_ENV=production npx tsc -p tsconfig.prod.json",
     "dev": "cross-env NODE_ENV=development tsc-watch -p ./tsconfig.json --onSuccess \"node ./build/bin/www.js\"",
     "start": "cross-env NODE_ENV=production node build/bin/www.js",
-    "test": "cross-env NODE_ENV=development npx jest --verbose",
+    "test:e2e": "cross-env NODE_ENV=test npx jest --verbose ./__test__/e2e/",
+    "test:unit": "cross-env NODE_ENV=test npx jest --verbose ./__test__/unit/",
+    "test": "npm run test:unit && npm run test:e2e",
     "lint": "eslint ./src/**/*.ts",
     "lint:fix": "eslint **/*.ts --fix",
     "prettier": "prettier --check .",
@@ -37,6 +39,7 @@
     "@types/cors": "2.8.12",
     "@types/express": "4.17.13",
     "@types/jest": "29.2.5",
+    "@types/supertest": "2.0.12",
     "@typescript-eslint/eslint-plugin": "5.33.1",
     "@typescript-eslint/parser": "5.33.1",
     "eslint": "8.22.0",
@@ -79,6 +82,8 @@
   "_moduleAliases": {
     "@apps": "build/src/apps",
     "@configs": "build/src/configs",
+    "@middlewares": "build/src/middlewares",
+    "@models": "build/src/models",
     "@bin": "build/bin",
     "@src": "build/src",
     "@root": "build"
