@@ -7,7 +7,8 @@ dotenv.config()
 const getConfig = (): ENV => {
   return {
     NODE_ENV: process.env.NODE_ENV,
-    PORT: process.env.PORT !== undefined ? Number(process.env.PORT) : 55298
+    PORT: process.env.PORT !== undefined ? Number(process.env.PORT) : 55298,
+    PKG_VERSION: process.env.npm_package_version,
   }
 }
 
