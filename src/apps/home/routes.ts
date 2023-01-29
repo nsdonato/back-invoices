@@ -6,4 +6,8 @@ router.get('/', (_, res) => {
   res.send('Response from API')
 })
 
+router.get('/health', (_, res) => {
+  res.status(200).send('OK')
+})
+
 export { router }

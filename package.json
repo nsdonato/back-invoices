@@ -2,7 +2,7 @@
   "name": "back-invoice",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.ts",
   "scripts": {
     "build": "cross-env NODE_ENV=production npx tsc -p tsconfig.prod.json",
     "dev": "cross-env NODE_ENV=development tsc-watch -p ./tsconfig.json --onSuccess \"node ./build/bin/www.js\"",
