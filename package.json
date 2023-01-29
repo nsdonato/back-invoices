@@ -91,5 +91,8 @@
     "@bin": "build/bin",
     "@src": "build/src",
     "@root": "build"
+  },
+  "engines": {
+    "node": ">=18 <19"
   }
 }
