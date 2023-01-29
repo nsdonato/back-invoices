@@ -3,8 +3,12 @@ import express from 'express'
 import cors from 'cors'
 import helmet from 'helmet'
 import compress from 'compression'
+import SwaggerUi from 'swagger-ui-express'
+import handlerError from '@middlewares/error-handler'
 import { router } from '@apps/home/routes'
+import { invoicesRouter } from '@apps/invoices/router'
 import { ConfigEnv, logger } from '@configs/index'
+import { OpenAPISpec } from '@configs/swagger'
 
 const app = express()
 const routePrefix = '/api/v1'
@@ -23,11 +27,17 @@ app.use(helmet.hidePoweredBy())
 app.use(helmet.frameguard({ action: 'deny' }))
 app.use(compress())
 app.use(logger.express)
+app.use('/docs', SwaggerUi.serve, SwaggerUi.setup(OpenAPISpec))
 
 app.use(`${routePrefix}/`, router)
+app.use(`${routePrefix}/invoices`, invoicesRouter)
+
+app.use(handlerError)
 
 export const start = (): void => {
   app.listen(port, () => {
     logger.debug.info(`Server running on port ${port}`)
   })
 }
+
+export { app as appServer, routePrefix }
