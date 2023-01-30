@@ -118,6 +118,6 @@ Si tienes cualquier duda puedes preguntar en nuestro [Discord](https://discord.i
 
 ## Colaboradores
 
-<a href="https://github.com/nsdonato/front-invoices/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=nsdonato/front-invoices" />
+<a href="https://github.com/nsdonato/back-invoices/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=nsdonato/back-invoices" />
 </a>
