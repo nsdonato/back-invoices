@@ -31,7 +31,7 @@ model InvoiceItem {
   price           Float
   total           Float
   invoiceId       String @db.ObjectId
-  invoce          Invoice @relation(fields: [invoiceId], references: [id])
+  invoice         Invoice @relation(fields: [invoiceId], references: [id])
 }
 
 model Client {
