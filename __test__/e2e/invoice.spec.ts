@@ -68,3 +68,19 @@ describe(`GET ${routePrefix}/invoices`, () => {
     expect(response.body.data).toEqual(invoiceExpected)
   })
 })
+
+describe(`DELETE ${routePrefix}/invoices`, () => {
+  it('should return 204 delete invoices', async () => {
+    const response = await request(appServer).delete(
+      `${routePrefix}/invoices/63d482ea037e6ff05f4685db`
+    )
+    expect(response.statusCode).toBe(204)
+  })
+
+  it('should return 404 if invoice not found', async () => {
+    const response = await request(appServer).delete(
+      `${routePrefix}/invoices/3231`
+    )
+    expect(response.statusCode).toBe(404)
+  })
+})
