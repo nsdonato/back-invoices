@@ -159,6 +159,24 @@ async function getDetailInvoiceController({
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+async function deleteInvoiceByIdController({
+  invoiceId
+}: {
+  invoiceId: string
+}): Promise<Invoice | null> {
+  try {
+    const invoiceDelete = await prisma.invoice.delete({
+      where: {
+        id: invoiceId
+      }
+    })
+    return invoiceDelete
+  } catch (error) {
+    throw new AppError({ message: 'invoice not found', status: 404 })
+  }
+}
+
 export {
   getAllInvoicesController,
   getDetailInvoiceController,
@@ -166,5 +184,6 @@ export {
   getClientById,
   getItemsById,
   getAddressClientById,
-  getAddressInvoiceById
+  getAddressInvoiceById,
+  deleteInvoiceByIdController
 }

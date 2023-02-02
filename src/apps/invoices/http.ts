@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from 'express'
 import {
+  deleteInvoiceByIdController,
   getAllInvoicesController,
   getDetailInvoiceController
 } from './controller'
@@ -37,4 +38,18 @@ async function getDetailInvoice(
   }
 }
 
-export { getAllInvoices, getDetailInvoice }
+async function deleteInvoiceById(
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<void> {
+  try {
+    const { id } = req.params
+    const invoice = await deleteInvoiceByIdController({ invoiceId: id })
+    res.send(invoice).status(200)
+  } catch (error) {
+    next(error)
+  }
+}
+
+export { getAllInvoices, getDetailInvoice, deleteInvoiceById }

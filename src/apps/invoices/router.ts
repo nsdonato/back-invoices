@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 /* TODO: tocaría revisar si hay alguna forma mejor de resolver este problema, por el momento lo dejaré así */
 import { Router } from 'express'
-import { getAllInvoices, getDetailInvoice } from './http'
+import { deleteInvoiceById, getAllInvoices, getDetailInvoice } from './http'
 
 const invoicesRouter = Router()
 
 invoicesRouter.get('/', getAllInvoices)
 invoicesRouter.get('/:id', getDetailInvoice)
+invoicesRouter.delete('/:id', deleteInvoiceById)
 
 export { invoicesRouter }
