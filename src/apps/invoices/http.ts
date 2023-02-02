@@ -1,8 +1,10 @@
 import { NextFunction, Request, Response } from 'express'
 import {
+  createInvoiceController,
   getAllInvoicesController,
   getDetailInvoiceController
 } from './controller'
+import { CreateInvoiceDTO } from './types'
 
 async function getAllInvoices(
   _req: Request,
@@ -37,4 +39,21 @@ async function getDetailInvoice(
   }
 }
 
-export { getAllInvoices, getDetailInvoice }
+async function createInvoice(
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<void> {
+  try {
+    const payload = req.body
+    const invoice = await createInvoiceController(payload as CreateInvoiceDTO)
+    res.status(200).json({
+      ok: true,
+      data: invoice
+    })
+  } catch (error: unknown) {
+    next(error)
+  }
+}
+
+export { getAllInvoices, getDetailInvoice, createInvoice }
