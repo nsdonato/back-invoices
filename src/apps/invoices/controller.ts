@@ -1,6 +1,12 @@
 import { AppError } from '@models/app-error'
-import { PrismaClient } from '@prisma/client'
-import type { Invoice, Client, InvoiceItem, Address } from './types'
+import { Prisma, PrismaClient } from '@prisma/client'
+import type {
+  Invoice,
+  Client,
+  InvoiceItem,
+  Address,
+  CreateInvoiceDTO
+} from './types'
 
 const prisma = new PrismaClient()
 
@@ -159,6 +165,40 @@ async function getDetailInvoiceController({
   }
 }
 
+async function createInvoiceController(invoicePayload: CreateInvoiceDTO) {
+  try {
+    const { invoiceAddress, clientId, items, ...rest } = invoicePayload
+
+    const newInvoice = await prisma.invoice.create({
+      data: {
+        address: {
+          create: invoiceAddress
+        },
+        client: {
+          connect: {
+            id: clientId
+          }
+        },
+        items: {
+          create: items
+        },
+        ...rest
+      }
+    })
+
+    return newInvoice
+  } catch (error: unknown) {
+    if (error instanceof AppError) {
+      throw error
+    }
+    throw new AppError({ message: String(error), status: 500 })
+  }
+}
+
+export type CreateInvoiceOutput = Prisma.PromiseReturnType<
+  typeof createInvoiceController
+>
+
 export {
   getAllInvoicesController,
   getDetailInvoiceController,
@@ -166,5 +206,6 @@ export {
   getClientById,
   getItemsById,
   getAddressClientById,
-  getAddressInvoiceById
+  getAddressInvoiceById,
+  createInvoiceController
 }

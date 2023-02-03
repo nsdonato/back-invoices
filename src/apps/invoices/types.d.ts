@@ -13,6 +13,10 @@ export interface Invoice {
   invoiceAddress?: Address
 }
 
+export type CreateInvoiceDTO = Required<
+  Omit<Invoice, 'id' | 'createdAt' | 'client' | 'clientAddress'>
+>
+
 export interface Client {
   id?: string
   createdAt?: Date
