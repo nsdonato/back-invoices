@@ -166,7 +166,7 @@ async function deleteInvoiceByIdController({
   invoiceId: string
 }): Promise<Invoice | null> {
   try {
-    const invoiceDelete = await prisma.invoice.delete({
+    const invoiceDelete = await prisma.invoice.findUnique({
       where: {
         id: invoiceId
       }
