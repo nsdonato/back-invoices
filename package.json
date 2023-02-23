@@ -2,7 +2,7 @@
   "name": "back-invoice",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.ts",
   "scripts": {
     "build": "cross-env NODE_ENV=production npx tsc -p tsconfig.prod.json",
     "dev": "cross-env NODE_ENV=development tsc-watch -p ./tsconfig.json --onSuccess \"node ./build/bin/www.js\"",
@@ -18,7 +18,7 @@
     "prisma:migrate": "prisma migrate dev --preview-feature --schema=./prisma/schema.prisma",
     "prisma:generate": "prisma generate --schema=./prisma/schema.prisma",
     "prisma:generate-watch": "prisma generate --watch --schema=./prisma/schema.prisma",
-    "prisma:seed": "ts-node bin/seed.ts",
+    "prisma:seed": "ts-node prisma/seed.ts",
     "prepare": "husky install"
   },
   "repository": {
@@ -51,6 +51,7 @@
     "eslint-plugin-promise": "6.1.1",
     "husky": "8.0.1",
     "jest": "28.1.3",
+    "jest-mock-extended": "3.0.1",
     "lint-staged": "13.0.3",
     "prettier": "2.7.1",
     "prisma": "4.2.1",
@@ -62,6 +63,8 @@
   },
   "dependencies": {
     "@prisma/client": "4.2.1",
+    "@types/swagger-jsdoc": "^6.0.1",
+    "@types/swagger-ui-express": "^4.1.3",
     "compression": "1.7.4",
     "cors": "2.8.5",
     "cross-env": "7.0.3",
@@ -70,7 +73,9 @@
     "helmet": "6.0.1",
     "log4js": "6.7.1",
     "module-alias": "2.2.2",
-    "mongoose": "6.8.3"
+    "mongoose": "6.8.3",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.0"
   },
   "lint-staged": {
     "*.(ts|tsx)": [
@@ -87,5 +92,8 @@
     "@bin": "build/bin",
     "@src": "build/src",
     "@root": "build"
+  },
+  "engines": {
+    "node": ">=18 <19"
   }
 }

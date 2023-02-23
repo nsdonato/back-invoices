@@ -21,16 +21,17 @@ De esta manera aprenderas cosas del día a día de un ambiente laboral!:
 - Utilización de diferentes tecnologías que decidimos utilizar en el proyecto, como: Git, Github, Node, Express, TypeScript, ESLint, Prettier, Husky, entre otras!
 
 ## Estructura del proyecto
+
 ```
 .
 ├── __test__
 │   └── index.spec.ts
 ├── bin
-|   ├── seed.ts
 │   └── www.ts
 ├── prisma
 │   ├── data.dto.ts
 │   ├── data.json
+|   ├── seed.ts
 │   └── schema.prisma
 ├── src
 │   ├── apps
@@ -57,7 +58,8 @@ De esta manera aprenderas cosas del día a día de un ambiente laboral!:
 10 directories, 21 files
 
 ```
-*Nota:* Si quieres agregar algún archivo que vaya a ser añadido en un script de node, agregarlo en la carpeta ```bin```
+
+_Nota:_ Si quieres agregar algún archivo que vaya a ser añadido en un script de node, agregarlo en la carpeta `bin`
 
 ## Diseño
 
@@ -116,6 +118,6 @@ Si tienes cualquier duda puedes preguntar en nuestro [Discord](https://discord.i
 
 ## Colaboradores
 
-<a href="https://github.com/nsdonato/front-invoices/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=nsdonato/front-invoices" />
+<a href="https://github.com/nsdonato/back-invoices/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=nsdonato/back-invoices" />
 </a>

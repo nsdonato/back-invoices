@@ -1,8 +1,6 @@
+import prisma from '@root/prisma/client'
 import { AppError } from '@models/app-error'
-import { PrismaClient } from '@prisma/client'
 import type { Invoice, Client, InvoiceItem, Address } from './types'
-
-const prisma = new PrismaClient()
 
 async function getInvoiceById({
   invoiceId
