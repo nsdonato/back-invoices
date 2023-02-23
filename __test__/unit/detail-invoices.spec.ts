@@ -99,6 +99,7 @@ describe('getAddressInvoiceById', () => {
     })
     expect(address).toBeNull()
   })
+
   it('should return address invoice if address invoice found', async () => {
     const addressExpected = {
       street: '19 Union Terrace',
